@@ -3,10 +3,9 @@
  */
 
 .flag {
-    display: inline-block;
     width: 16px;
     height: 16px;
-    background: url('flags.png') no-repeat;
+    background: url('https://raw.githubusercontent.com/c0d0er/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/master/flags.png') no-repeat;
 }
 
 
