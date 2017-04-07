@@ -5,13 +5,22 @@ class ForceGraph extends React.Component{
       let links=data.links;
       let w=window.innerWidth;
       let h=window.innerHeight;
+      //console.log(nodes)
+      //console.log(links)
 
-      console.log(nodes)
+      let linksArr=[];
+      links.forEach((e,i)=>{
+        console.log(e)
+        linksArr.push([e.source, e.target])
+      })
+console.log(linksArr)
+
+      let div = d3.select('.forcegraph').append('div');
+
       let svg=d3.select('.forcegraph')
                 .append('svg')
                 .attr('width',w)
                 .attr('height', h);
-
 
       let forceG = d3.forceSimulation(nodes)
                      .force('link', d3.forceLink().links(links).strength(2.2))
@@ -20,73 +29,52 @@ class ForceGraph extends React.Component{
                      .force('collide', d3.forceCollide(20))
                      .on('tick', ticked);
 
-      let link = svg
-                    //.append('g')
-                    .selectAll('.links')
+      let link = svg.append('g')
+                    .attr('class', 'links')
+                    .selectAll('line')
                     .data(links)
                     .enter()
-                    .append('line')
-                    .attr('class', 'link');
+                    .append('line');
 
-      let node = d3//.select('.forcegraph')
-                   .select('.flags')
-                   //.selectAll('.node')
-                   // svg.append('g')
-                    //.selectAll('circle')
+      let node =  d3.select('.forcegraph')
+                    .select('.flags')
+                    .append('g')
                     .selectAll('img')
                     .data(nodes)
                     .enter()
                     .append('img')
-                    //.append('circle')
-                    //.attr('r', 8)
                     .attr('class',d=>'flag flag-'+d.code)
-                    //.attr('class', 'node')//disturb firing the image!!!
+                    
                     .call(d3.drag()
                             .on('start', dragstarted)
                             .on('drag', dragged)
                             .on('end', dragended)
                             );
-  /*var linkedByIndex = {};
-    links.forEach(function(d) {
 
-        linkedByIndex[d.source.index + "," + d.target.index] = 1;
-    });
+          node.on('mouseover', function(d){
+            console.log(d)
+                      div.html('<div class="tooltip1"><span class="country">'+d.country+d.index+'</span></div>')
+            .style('left', (d3.event.clientX) + 'px')
+            .style('top', (d3.event.clientY - 32) + 'px')
+            .style('position', 'absolute');
+      })
 
-    
-    
-    function isConnected(a, b) {
-        return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index];
-    }
-    
-    node.on("mouseover", function(d){
-        node.classed("node-connected", function(o) {
-            return isConnected(d, o) ? true : false;
-        });
-
-        link.classed("link-active", function(o) {
-            return o.source === d || o.target === d ? true : false;
-        });
-
-        d3.select(this).classed('node-active', true);
-    }).on("mouseout", function(d){                
-        node.attr('class', 'node')
-        link.classed("link-active", false);
-    });*/
-      
+              .on('mouseout', function(){
+                d3.select('.tooltip1')
+            .classed('hidden', 'true');
+          });
 
           function ticked() {
       link.attr("x1", (d) => d.source.x )
           .attr("y1", (d) => d.source.y )
           .attr("x2", (d) => d.target.x )
           .attr("y2", (d) => d.target.y );
-      node.style("left", (d) => d.x +'px')
-          .style("top", (d) => d.y+'px' );
-      //node.style('left', d => (d.x - 16) + "px")
-      //.style('top', d => (d.y - 16) + "px");
+      node.style("left", (d) => d.x-8 +'px')
+          .style("top", (d) => d.y-8 +'px' );
+        //svg.attr('width',window.innerWidth)
+        //.attr('height', window.innerHeight);
     }
   
-
-
    function dragstarted(d) {
         if (!d3.event.active) { 
             forceG.alphaTarget(0.3)//0.3
@@ -109,6 +97,12 @@ class ForceGraph extends React.Component{
         d.fy = null;
     }
 
+    svg.append('text')
+        .attr("transform", "translate(" + (w / 2) + " ," + 60 + ")")
+        .style("text-anchor", "middle")
+        .attr('fill', 'white')
+        .style('font-size', '1.9em')
+        .text("Show National Contiguity with a Force Directed Graph");
     })
   }
 
