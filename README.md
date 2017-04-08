@@ -1,5 +1,7 @@
 ## D3-Show-National-Contiguity-with-a-Force-Directed-Graph
-##### Check it out [here](https://c0d0er.github.io/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/){:target="_blank"}
+##### Check it out <a href="https://c0d0er.github.io/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/" target="_blank">[here]</a>
+
+[here](https://c0d0er.github.io/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/){:target="_blank"}
 
 ##### Fulfill the below user stories:
 - User Story: I can see a Force-directed Graph that shows which countries share borders.
