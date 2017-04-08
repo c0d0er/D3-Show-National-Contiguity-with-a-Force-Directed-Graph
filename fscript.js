@@ -1,6 +1,6 @@
 class ForceGraph extends React.Component{
   componentDidMount() {
-    $.getJSO('https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json',(data)=>{//same as d3.json;
+    $.getJSON('https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json',(data)=>{//same as d3.json;
       let nodes=data.nodes;
       let links=data.links;
       let w=window.innerWidth;
