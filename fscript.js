@@ -14,10 +14,10 @@ class ForceGraph extends React.Component{
                 .attr('height', h);
 
       let forceG = d3.forceSimulation(nodes)
-                     .force('link', d3.forceLink().links(links).strength(2.2))
-                     .force('charge', d3.forceManyBody().strength(-0.5))
+                     .force('link', d3.forceLink().links(links).strength(2.5))
+                     .force('charge', d3.forceManyBody().strength(440))
                      .force('center', d3.forceCenter(w/2, h/2))
-                     .force('collide', d3.forceCollide(20))
+                     .force('collide', d3.forceCollide(24))
                      .on('tick', ticked);
 
       let link = svg.append('g')
