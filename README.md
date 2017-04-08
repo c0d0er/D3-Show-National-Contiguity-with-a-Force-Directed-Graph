@@ -1,5 +1,5 @@
 ## D3-Show-National-Contiguity-with-a-Force-Directed-Graph
-##### Check it out <a href="https://c0d0er.github.io/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/" target="_blank">[here]</a>
+##### Check it out <a href="https://c0d0er.github.io/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/" target="_blank">here</a>
 
 [here](https://c0d0er.github.io/D3-Show-National-Contiguity-with-a-Force-Directed-Graph/){:target="_blank"}
 
