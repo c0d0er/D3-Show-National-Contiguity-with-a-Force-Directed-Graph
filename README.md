@@ -10,5 +10,6 @@
 - CSS
 - JavaScript
 - D3
+- SCSS
 - React
 - jQuery
