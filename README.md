@@ -1,4 +1,4 @@
-## D3-Show-National-Contiguity-with-a-Force-Directed-Graph
+## Visualize-National-Contiguity-with-a-Force-Directed-Graph
 #### Check it out [here](https://c0d0er.github.io/Visualize-National-Contiguity-with-a-Force-Directed-Graph/)
 
 #### Fulfill the below user stories:
